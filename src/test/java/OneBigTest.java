@@ -88,17 +88,18 @@ public class OneBigTest{
         driver.switchTo().window(newWindow);
         browserWidowsPage.close();
         driver.switchTo().window(currentWindow);
-
         elementsPage.clickAlertsButton();
         AlertsPage alertsPage = new AlertsPage(driver);
-        alertsPage.clickAlertButton();
-        driver.switchTo().alert().accept();
+        alertsPage
+                .clickAlertButton()
+                .acceptAlert();
         alertsPage.clickTimerAlertButton();
         Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.alertIsPresent());
-        driver.switchTo().alert().accept();
-        alertsPage.clickConfirmButton();
-        driver.switchTo().alert().accept();
+        alertsPage
+                .acceptAlert()
+                .clickConfirmButton()
+                .acceptAlert();
         Assert.assertEquals("You selected Ok",alertsPage.getConfirmResult().getText());
         alertsPage.clickPromtButton();
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
