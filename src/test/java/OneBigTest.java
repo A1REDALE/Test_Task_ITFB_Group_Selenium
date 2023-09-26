@@ -34,10 +34,11 @@ public class OneBigTest{
     @Test
     public void oneBigTest() {
         MainPage mainPage = new MainPage(driver);
-        mainPage.clickElementsButton();
         ElementsPage elementsPage = new ElementsPage(driver);
-        elementsPage.clickElementsMenuButton()
-        .clickTextBoxButton();
+        mainPage
+                .clickElementsButton()
+                .clickElementsMenuButton()
+                .clickTextBoxButton();
         TextBoxPage textBoxPage = new TextBoxPage(driver);
         textBoxPage
                 .fillForm()
@@ -46,7 +47,8 @@ public class OneBigTest{
         Assert.assertTrue(textBoxPage.getAddedEmail().endsWith(textBoxPage.getInputEmail()));
         Assert.assertTrue(textBoxPage.getAddedCurrentAddress().endsWith(textBoxPage.getInputCurrentAddress()));
         Assert.assertTrue(textBoxPage.getAddedPermanentAddress().endsWith(textBoxPage.getInputPermanentAddress()));
-        elementsPage.clickElementsMenuButton()
+        elementsPage
+                .clickElementsMenuButton()
                 .clickButtonsButton();
         ButtonsPage buttonsPage = new ButtonsPage(driver);
         buttonsPage.clickClickMeButton();
@@ -92,8 +94,8 @@ public class OneBigTest{
         AlertsPage alertsPage = new AlertsPage(driver);
         alertsPage
                 .clickAlertButton()
-                .acceptAlert();
-        alertsPage.clickTimerAlertButton();
+                .acceptAlert()
+                .clickTimerAlertButton();
         Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.alertIsPresent());
         alertsPage
