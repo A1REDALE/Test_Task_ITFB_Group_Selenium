@@ -1,7 +1,8 @@
 package PageObjectModels;
 
+import Config.DataProvider;
 import Config.User;
-import org.apache.maven.surefire.shared.lang3.RandomStringUtils;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,6 +12,7 @@ public class TextBoxPage {
     WebDriver driver;
     public TextBoxPage(WebDriver driver){
         this.driver = driver;
+        driver.get(DataProvider.getTextBoxUrl());
         PageFactory.initElements(driver,this);
     }
     @FindBy(css = "#userName")
@@ -48,11 +50,13 @@ public class TextBoxPage {
         permanentAddressField.sendKeys(permanentAddress);
         return this;
     }
+
+    @Step("click submit button")
     public TextBoxPage clickSubmitButton(){
         submitButton.click();
         return this;
     }
-
+    @Step("fill form")
     public TextBoxPage fillForm(){
         fillNameField(User.getRandomUser().getName()).
         fillEmailField(User.getRandomUser().getEmail()).
@@ -60,7 +64,6 @@ public class TextBoxPage {
         fillPermanentAddressField(User.getRandomUser().getPermanentAddress());
         return this;
     }
-
     public String getInputName(){
         return nameField.getAttribute("value");
     }

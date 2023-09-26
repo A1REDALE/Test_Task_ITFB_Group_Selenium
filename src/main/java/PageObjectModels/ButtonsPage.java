@@ -1,5 +1,6 @@
 package PageObjectModels;
 
+import Config.DataProvider;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,6 +12,7 @@ public class ButtonsPage{
     WebDriver driver;
     public ButtonsPage(WebDriver driver){
         this.driver = driver;
+        driver.get(DataProvider.getButtonsUrl());
         PageFactory.initElements(driver,this);
     }
     @FindBy(xpath = "//button[text()='Click Me']")
@@ -26,18 +28,17 @@ public class ButtonsPage{
     @FindBy(css = "#doubleClickMessage")
     private WebElement doubleClickMessage;
 
-
-    @Step("Нажатие на кнопку Click Me")
+    @Step("click Click Me button")
     public ButtonsPage clickClickMeButton(){
         new Actions(driver).click(clickMeButton).perform();
         return this;
     }
-    @Step("Нажатие на кнопку Right Click Me")
+    @Step("click Right Click Me button")
     public ButtonsPage clickRightClickMeButton(){
         new Actions(driver).contextClick(rightClickButton).perform();
         return this;
     }
-    @Step("Нажатие на кнопку Double Click Me")
+    @Step("click Double Click Me button")
     public ButtonsPage clickDoubleClickMeButton(){
         new Actions(driver).doubleClick(doubleClickButton).perform();
         return this;

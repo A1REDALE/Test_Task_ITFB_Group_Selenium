@@ -1,13 +1,14 @@
 import Config.DataProvider;
 import PageObjectModels.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Feature;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -28,8 +29,10 @@ public class OneBigTest{
     public void tearDown(){
         driver.quit();
     }
+    @DisplayName("Автоматизированный тест")
+    @Feature(value = "OneBigTest")
     @Test
-    public void oneBigTest() throws InterruptedException {
+    public void oneBigTest() {
         MainPage mainPage = new MainPage(driver);
         mainPage.clickElementsButton();
         ElementsPage elementsPage = new ElementsPage(driver);

@@ -1,5 +1,6 @@
 package PageObjectModels;
 
+import Config.DataProvider;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,24 +11,24 @@ public class BrowserWidowsPage {
     WebDriver driver;
     public BrowserWidowsPage(WebDriver driver) {
         this.driver = driver;
+        driver.get(DataProvider.getBrowserWindowsUrl());
         PageFactory.initElements(driver,this);
     }
     @FindBy(xpath = "//button[@id='tabButton']")
     private WebElement tabButton;
     @FindBy(xpath = "//button[@id='windowButton']")
     private WebElement newWindowButton;
-    @Step("Open new tab")
+    @Step("open new tab")
     public BrowserWidowsPage clickTabButton(){
         tabButton.click();
         return this;
     }
-    @Step("Open new Window")
+    @Step("open new Window")
     public BrowserWidowsPage clickNewWindowButton(){
         newWindowButton.click();
         return this;
     }
-
-    @Step("Close tab or window")
+    @Step("close tab or window")
     public BrowserWidowsPage close(){
         driver.close();
         return this;

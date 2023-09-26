@@ -1,18 +1,12 @@
 package TestsClassesPageObjects;
 
-import Config.DataProvider;
 import PageObjectModels.TextBoxPage;
 import io.qameta.allure.Feature;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 public class TextBoxPageTest extends BaseTest {
-    @Before
-    public void setUp(){
-        driver.get(DataProvider.getTextBoxUrl());
-    }
 
     @DisplayName("Заполнение формы, проверка отображения введенных данных")
     @Feature(value = "TextBox")

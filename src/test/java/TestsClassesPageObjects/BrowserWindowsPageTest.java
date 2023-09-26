@@ -1,21 +1,13 @@
 package TestsClassesPageObjects;
 
-import Config.DataProvider;
 import PageObjectModels.BrowserWidowsPage;
 import io.qameta.allure.Feature;
 import io.qameta.allure.junit4.DisplayName;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Set;
 
-
-public class BrowserWindowsPageTest extends BaseTest {
-    @Before
-    public void setUp() {
-        driver.get(DataProvider.getBrowserWindowsUrl());
-    }
-
+public class BrowserWindowsPageTest extends BaseTest{
     @DisplayName("Закрытие открытой вкладки")
     @Feature(value = "BrowserWindows")
     @Test

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: TestsClassesPageObjects.ButtonsPageTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 118.519 s - in TestsClassesPageObjects.ButtonsPageTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 121.495 s - in TestsClassesPageObjects.ButtonsPageTest

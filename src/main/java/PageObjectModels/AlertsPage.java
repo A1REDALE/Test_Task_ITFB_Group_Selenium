@@ -1,5 +1,6 @@
 package PageObjectModels;
 
+import Config.DataProvider;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +11,9 @@ public class AlertsPage {
     WebDriver driver;
     public AlertsPage(WebDriver driver) {
         this.driver = driver;
+        driver.get(DataProvider.getAlertsUrl());
         PageFactory.initElements(driver,this);
+
     }
     @FindBy(css = "#alertButton")
     private WebElement alertButton;
@@ -25,27 +28,27 @@ public class AlertsPage {
     @FindBy(xpath = "//span[@id='promptResult']")
     private WebElement promtResult;
 
-    @Step("Click Button to see alert")
+    @Step("click Button to see alert")
     public AlertsPage clickAlertButton(){
         alertButton.click();
         return this;
     }
-    @Step("On button click, alert will appear after 5 seconds")
+    @Step("on button click, alert will appear after 5 seconds")
     public AlertsPage clickTimerAlertButton(){
         timerAlertButton.click();
         return this;
     }
-    @Step("On button click, confirm box will appear")
+    @Step("on button click, confirm box will appear")
     public AlertsPage clickConfirmButton(){
         confirmButton.click();
         return this;
     }
-    @Step("On button click, prompt box will appear")
+    @Step("on button click, prompt box will appear")
     public AlertsPage clickPromtButton(){
         promtButton.click();
         return this;
     }
-    @Step("Close Alert")
+    @Step("accept alert")
     public AlertsPage acceptAlert(){
         driver.switchTo().alert().accept();
         return this;

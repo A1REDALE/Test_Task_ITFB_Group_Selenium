@@ -1,11 +1,9 @@
 package TestsClassesPageObjects;
 
-import Config.DataProvider;
-import PageObjectModels.AlertsPage;;
+import PageObjectModels.AlertsPage;
 import io.qameta.allure.Feature;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
@@ -15,11 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class AlertsTest extends BaseTest{
-    @Before
-    public void setUp(){
-        driver.get(DataProvider.getAlertsUrl());
-    }
+public class AlertsPageTest extends BaseTest{
 
     @DisplayName("Закрытие алерта")
     @Feature(value = "Alerts")
