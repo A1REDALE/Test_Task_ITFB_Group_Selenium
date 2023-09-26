@@ -1,0 +1,8 @@
+PageObjectModels\ButtonsPage.class
+Config\DataProvider.class
+PageObjectModels\TextBoxPage.class
+PageObjectModels\AlertsPage.class
+PageObjectModels\BrowserWidowsPage.class
+Config\User.class
+PageObjectModels\ElementsPage.class
+PageObjectModels\MainPage.class

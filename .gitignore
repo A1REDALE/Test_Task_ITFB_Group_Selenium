@@ -1,6 +1,4 @@
 /.allure/
 /.idea/
-### Target except allure-results ###
-!/target/
-/target/**
-!/target/allure-results
+
+
